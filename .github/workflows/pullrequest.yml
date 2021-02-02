@@ -39,14 +39,14 @@ jobs:
         with:
           node-version: "15"
       - run: npm ci
-      - run: npm run lint
       - run: npm run test
+      - run: npm run validate
       - run: npm run build
-      - run: npm run adapt
+      - run: npm run export
       - name: Deploy to surge
         uses: dswistowski/surge-sh-action@v1
         with:
           domain: "https://${{ env.GITHUB_REPOSITORY_NAME_PART }}-PR-${{ env.GITHUB_HEAD_REF_SLUG }}-${{ env.GITHUB_REPOSITORY_OWNER_PART }}.surge.sh"
-          project: "build"
+          project: "__sapper__/export"
           login: ${{ secrets.surge_login }}
           token: ${{ secrets.surge_token }}
