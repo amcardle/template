@@ -6,10 +6,7 @@
 		"build": "svelte-kit build",
 		"start": "svelte-kit start",
 		"adapt": "svelte-kit adapt --verbose",
-		"test": "jest",
-		"lint": "eslint --ext .cjs,.js,.ts,.json,.svelte .",
-		"lint-fix": "eslint --fix --ext .cjs,.js,.ts,.json,.svelte .",
-		"postinstall": "patch-package"
+		"test": "jest"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.12.10",
@@ -22,11 +19,7 @@
 		"@testing-library/jest-dom": "^5.11.9",
 		"@testing-library/svelte": "^3.0.3",
 		"@types/jest": "^26.0.20",
-		"@typescript-eslint/eslint-plugin": "^4.14.2",
-		"@typescript-eslint/parser": "^4.14.2",
 		"babel-jest": "^26.6.3",
-		"eslint": "^7.19.0",
-		"eslint-plugin-svelte3": "^3.0.0",
 		"jest": "^26.6.3",
 		"sass": "^1.0.0",
 		"surge": "^0.21.7",
@@ -39,7 +32,6 @@
 	},
 	"dependencies": {
 		"@sveltejs/adapter-static": "^1.0.0-next.0",
-		"eslint-svelte3-preprocess": "^0.0.4",
 		"patch-package": "^6.2.2"
 	},
 	"jest": {
