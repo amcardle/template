@@ -47,6 +47,6 @@ jobs:
         uses: dswistowski/surge-sh-action@v1
         with:
           domain: "https://${{ env.GITHUB_REPOSITORY_NAME_PART }}-${{ env.GITHUB_REF_SLUG }}-${{ env.GITHUB_REPOSITORY_OWNER_PART }}.surge.sh"
-          project: "__sapper__/export"
+          project: "dist"
           login: ${{ secrets.surge_login }}
           token: ${{ secrets.surge_token }}
