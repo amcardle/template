@@ -40,15 +40,19 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: "15"
-      - run: npm ci
-      - run: npm run test
-      - run: npm run validate
-      - run: npm run build
-      - run: npm run export
+      - run: npm i -G yarn
+      - run: yarn install
+      - run: yarn test:unit
+      - run: yarn lint
+      - run: yarn build
       - name: Deploy to surge
         uses: dswistowski/surge-sh-action@v1
         with:
           domain: "https://${{ env.GITHUB_REPOSITORY_NAME_PART }}-${{ env.GITHUB_REPOSITORY_OWNER_PART }}.surge.sh"
-          project: "__sapper__/export"
+          project: "dist"
           login: ${{ secrets.surge_login }}
           token: ${{ secrets.surge_token }}
+      - name: Create commit comment
+        uses: peter-evans/commit-comment@v1
+        with:
+          body: https://${{ env.GITHUB_REPOSITORY_NAME_PART }}-${{ env.GITHUB_REPOSITORY_OWNER_PART }}.surge.sh
